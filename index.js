@@ -27,10 +27,18 @@ function handleEvent(event) {
 
   let qList = ['好きな食べ物は何ですか？', '出身地はどこですか？', '好きな本は何ですか？', '趣味は何ですか？'];
 
-  return client.replyMessage(event.replyToken, {
-    type: 'text',
-    text: qList[Math.floor(Math.random() * qList.length)] //実際に返信の言葉を入れる箇所
-  });
+  return client.replyMessage(event.replyToken,
+    [
+      {
+        type: 'text',
+        text: qList[Math.floor(Math.random() * qList.length)]
+      },
+      {
+        type: 'text',
+        text: qList[Math.floor(Math.random() * qList.length)]
+      }
+    ]
+);
 }
 
 app.listen(PORT);
