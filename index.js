@@ -72,7 +72,7 @@ function handleEvent(event) {
     }
   ];
   let randomQList = shuffle(qList).slice(0, 4);
-  return client.replyMessage(event.replyToken,randomQList;
+  return client.replyMessage(event.replyToken, randomQList);
 }
 
 app.listen(PORT);
