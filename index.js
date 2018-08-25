@@ -25,7 +25,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  qList = ['好きな食べ物は何ですか？', '出身地はどこですか？', '好きな本は何ですか？', '趣味は何ですか？']
+  let qList = ['好きな食べ物は何ですか？', '出身地はどこですか？', '好きな本は何ですか？', '趣味は何ですか？']
 
   return client.replyMessage(event.replyToken, {
     type: 'text',
