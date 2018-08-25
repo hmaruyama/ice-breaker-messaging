@@ -2,6 +2,7 @@
 
 const express = require('express');
 const line = require('@line/bot-sdk');
+const async = require('async');
 const PORT = process.env.PORT || 3000;
 
 const config = {
@@ -72,7 +73,15 @@ function handleEvent(event) {
     }
   ];
   let randomQList = shuffle(qList).slice(0, 4);
-  return client.replyMessage(event.replyToken, randomQList);
+
+  const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+
+  (async () => {
+    console.log('スタート');
+    await sleep(1000);
+    return client.replyMessage(event.replyToken, randomQList);
+    console.log('1秒経ってる!')
+  })();
 }
 
 app.listen(PORT);
