@@ -38,6 +38,10 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+  if(event.message.text != 'test'){
+    return;
+  }
+
   let qList = [
     {
       type: 'text',
@@ -80,7 +84,6 @@ function handleEvent(event) {
     console.log('スタート');
     await sleep(5000);
     return client.replyMessage(event.replyToken, randomQList);
-    console.log('1秒経ってる!')
   })();
 }
 
