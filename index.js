@@ -78,7 +78,7 @@ function handleEvent(event) {
 
   (async () => {
     console.log('スタート');
-    await sleep(1000);
+    await sleep(5000);
     return client.replyMessage(event.replyToken, randomQList);
     console.log('1秒経ってる!')
   })();
