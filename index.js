@@ -77,11 +77,12 @@ function handleEvent(event) {
     }
   ];
   let randomQList = shuffle(qList).slice(0, 4);
-
+  console.log(event);
   const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
   (async () => {
     await sleep(3000);
+    // return client.pushMessage(event.source.userId, {type: 'text', text: 'PushAPIを使いました'});
     return client.replyMessage(event.replyToken, randomQList);
   })();
 }
