@@ -85,7 +85,6 @@ function handleEvent(event) {
     userId = event.source.groupId;
   } else {
     userId = event.source.userId;
-    }
   }
 
   (async () => {
