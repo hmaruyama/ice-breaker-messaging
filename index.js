@@ -80,11 +80,19 @@ function handleEvent(event) {
   console.log(event.userId);
   const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
+  let userId;
+  if(event.source.groupId) {
+    userId = event.source.groupId;
+  } else {
+    userId = event.source.userId;
+    }
+  }
+
   (async () => {
     await sleep(3000);
-    client.pushMessage(event.source.userId, {type: 'text', text: 'PushAPIを使いました'});
+    client.pushMessage(userId, {type: 'text', text: 'PushAPIを使いました'});
     await sleep(3000);
-    return client.pushMessage(event.source.userId, {type: 'text', text: 'PushAPIを使いました2'});
+    return client.pushMessage(userId, {type: 'text', text: 'PushAPIを使いました2'});
     // return client.replyMessage(event.replyToken, randomQList);
   })();
 }
