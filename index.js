@@ -38,7 +38,7 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  if(event.message.text != 'test'){
+  if(event.message.text != 'ヘルプ'){
     return;
   }
 
