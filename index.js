@@ -87,6 +87,14 @@ function handleEvent(event) {
   }
 
 
+  const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+
+  (async () => {
+    console.log('スタート');
+    await sleep(3000);
+    console.log('1秒経ってる!')
+  })();
+
   async.eachSeries(randomQList, function (item, callback) {
       callback(null);
       //or
