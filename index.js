@@ -91,7 +91,6 @@ function handleEvent(event) {
       callback(null);
       //or
       console.log(item);
-      callback(new Error('aaa'));
   }, function (err) {
   });
 
