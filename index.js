@@ -91,9 +91,10 @@ function handleEvent(event) {
       callback(null);
       //or
       console.log(item);
+      client.pushMessage(userId, {type: 'text', text: item});
   }, function (err) {
   });
-
+  return;
 
 
   // (async () => {
