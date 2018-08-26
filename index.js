@@ -94,10 +94,10 @@ function handleEvent(event) {
   }
   const waitFor = (ms) => new Promise(r => setTimeout(r, ms));
   const start = async () => {
-    await asyncForEach(randomQList, async (num) => {
+    await asyncForEach(randomQList, async (item) => {
       await waitFor(1000);
       client.pushMessage(userId, item);
-      console.log(num);
+      console.log(item);
     })
     console.log('Done');
   }
