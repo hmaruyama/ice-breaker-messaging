@@ -87,31 +87,27 @@ function handleEvent(event) {
   }
 
 
-  const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
-  (async () => {
-    console.log('スタート');
-    await sleep(3000);
-    console.log('1秒経ってる!')
-  })();
+  const waitFor = (ms) => new Promise(r => setTimeout(r, ms));
+  async () => {
+    await asyncForEach([1, 2, 3], async (num) => {
+      await waitFor(1000)
+      console.log(num)
+    })
+    console.log('Done')
+  }
 
-  async.eachSeries(randomQList, function (item, callback) {
-      callback(null);
-      //or
-      console.log(item);
-      client.pushMessage(userId, item);
-  }, function (err) {
-  });
+
+
+
+
+  // async.eachSeries(randomQList, function (item, callback) {
+  //     console.log(item);
+  //     client.pushMessage(userId, item);
+  //     callback(null);
+  // }, function (err) {
+  // });
   return;
-
-
-  // (async () => {
-  //   await sleep(3000);
-  //   client.pushMessage(userId, randomQList[0]);
-  //   await sleep(3000);
-  //   return client.pushMessage(userId, randomQList[1]);
-  //   // return client.replyMessage(event.replyToken, randomQList);
-  // })();
 }
 
 app.listen(PORT);
