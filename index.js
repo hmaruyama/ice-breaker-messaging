@@ -81,8 +81,7 @@ function handleEvent(event) {
   const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
   (async () => {
-    console.log('スタート');
-    await sleep(5000);
+    await sleep(3000);
     return client.replyMessage(event.replyToken, randomQList);
   })();
 }
