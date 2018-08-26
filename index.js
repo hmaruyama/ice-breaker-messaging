@@ -87,11 +87,11 @@ function handleEvent(event) {
   }
 
 
-  async.eachSeries(['xxx', 'yyy', 'zzz'], function (item, callback) {
+  async.eachSeries(randomQList, function (item, callback) {
       callback(null);
       //or
       console.log(item);
-      client.pushMessage(userId, {type: 'text', text: item});
+      client.pushMessage(userId, item);
   }, function (err) {
   });
   return;
