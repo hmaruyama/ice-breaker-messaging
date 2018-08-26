@@ -78,7 +78,6 @@ function handleEvent(event) {
   ];
   let randomQList = shuffle(qList).slice(0, 4);
   console.log(event.userId);
-  const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
   let userId;
   if(event.source.groupId) {
@@ -87,13 +86,24 @@ function handleEvent(event) {
     userId = event.source.userId;
   }
 
-  (async () => {
-    await sleep(3000);
-    client.pushMessage(userId, randomQList[0]);
-    await sleep(3000);
-    return client.pushMessage(userId, randomQList[1]);
-    // return client.replyMessage(event.replyToken, randomQList);
-  })();
+
+  async.eachSeries(['xxx', 'yyy', 'zzz'], function (item, callback) {
+      callback(null);
+      //or
+      console.log(item);
+      callback(new Error('aaa'));
+  }, function (err) {
+  });
+
+
+
+  // (async () => {
+  //   await sleep(3000);
+  //   client.pushMessage(userId, randomQList[0]);
+  //   await sleep(3000);
+  //   return client.pushMessage(userId, randomQList[1]);
+  //   // return client.replyMessage(event.replyToken, randomQList);
+  // })();
 }
 
 app.listen(PORT);
