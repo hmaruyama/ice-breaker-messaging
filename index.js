@@ -89,9 +89,9 @@ function handleEvent(event) {
 
   (async () => {
     await sleep(3000);
-    client.pushMessage(userId, {type: 'text', text: 'PushAPIを使いました'});
+    client.pushMessage(userId, randomQList[0]);
     await sleep(3000);
-    return client.pushMessage(userId, {type: 'text', text: 'PushAPIを使いました2'});
+    return client.pushMessage(userId, randomQList[1]);
     // return client.replyMessage(event.replyToken, randomQList);
   })();
 }
